@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: the-dossier
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:dossier_db}
+    username: ${DB_USERNAME:dossier_admin}
+    password: ${DB_PASSWORD:dossier_pass}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-expiry: 900000 # 15 phút (ms)
+    refresh-token-expiry: 604800000  # 7 ngày (ms)
