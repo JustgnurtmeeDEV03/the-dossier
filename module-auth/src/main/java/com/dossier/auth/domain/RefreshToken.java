@@ -19,7 +19,7 @@ import java.util.UUID;
 public class RefreshToken {
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
 
