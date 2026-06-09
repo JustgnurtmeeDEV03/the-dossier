@@ -93,4 +93,5 @@ public class AuthController {
         }
         return request.getRemoteAddr();
     }
+public class AuthController {
 }
