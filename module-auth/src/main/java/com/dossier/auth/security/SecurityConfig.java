@@ -68,6 +68,7 @@ public class SecurityConfig {
     }
 
     // Bộ máy xác thực
+    // Nếu không khai báo Bean này, bạn sẽ không thể gọi authenticate() trong service login được
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
